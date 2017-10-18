@@ -51,7 +51,7 @@ public class Main {
 		}
 		
 		GenerateModel model = new GenerateModel();
-		model.TrainModel("src/main/prepared/TagedTrainNER.txt");
+		model.trainModel("src/main/prepared/TagedTrainNER.txt");
 
 		System.out.println("...End");
 
