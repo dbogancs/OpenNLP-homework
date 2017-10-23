@@ -66,12 +66,12 @@ public class TrainerTagMaker {
 
 			if (position.equals("B") && lastWasTagged) {
 
-				output = "<END>" + " " + "<START:" + tag + ">" + word;
+				output = " " + "<END>" + " " + "<START:" + tag + ">" + " " + word;
 				lastWasTagged = true;
 
 			} else if (position.equals("B") && !lastWasTagged) {
 
-				output = " " + "<START:" + tag + ">" + word;
+				output = " " + "<START:" + tag + ">" + " " + word;
 				lastWasTagged = true;
 
 			} else if (position.equals("I")) {
@@ -84,22 +84,21 @@ public class TrainerTagMaker {
 
 			if (isSepChar && lastWasTagged) {
 
-				output = "<END>" + word;
+				output = " " + "<END>" + " " + word;
 				lastWasTagged = false;
 
 			} else if (isSepChar && !lastWasTagged) {
 
-				output = "" + word;
+				output = " " + word;
 
 			} else if (!isSepChar && lastWasTagged) {
 
-				output = "<END>" + " " + word;
+				output = " " + "<END>" + " " + word;
 				lastWasTagged = false;
 
 			} else if (!isSepChar && !lastWasTagged) {
 
 				output = " " + word;
-
 			}
 
 		} else {
